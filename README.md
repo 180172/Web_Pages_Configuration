@@ -1,23 +1,23 @@
 ## Multiple web pages configuration 
- Using single server (host name or IP) configured home web page and multiple alias web pages and also wecan configure multiple web pages on different port as per availability.
+Using a single server (host name or IP), we can configure a home web page and multiple alias web pages, as well as multiple web pages on different ports as per availability.
 
  ### Prerequsite 
 
 - Linux server
 
 ### STEP 1:
-To create a website we have to configure some settings
+To create a website, we have to configure some settings
 
-* Instlling HTTP package
-Command to install HTTP pacakage is
+* Installing the HTTP package
+The command to install HTTP pacakage is
 ```bash
 sudo yum install -y httpd
 ```
-* Verify that the http is insalled
+* Verify that the http is insalled.
 ```bash
 sudo service httpd status
 ```
-* Verify that the firewall is running or not
+* Verify whether the firewall is running or not.
 ```bash
 sudo systemctl status firewalld
 ```
@@ -30,7 +30,7 @@ sudo yum install firewalld
 sudo systemctl enable firewalld
 sudo systemctl start firewalld
 ```
-* Now inorder to launch a webpage we require port 80 to be open so in order to open port 80 run below command.
+* Now, in order to launch a webpage, we require port 80 to be open, so in order to open port 80, run the below command.
 ```bash
 sudo firewall-cmd --zone=public --add-port=80/tcp --permanent
 sudo firewall-cmd --reload
@@ -38,21 +38,21 @@ sudo firewall-cmd --reload
 
 ### STEP 2:
 
-Now we have to configre the rules and settings of HTTP so note down following contents to your notepad.
+Now we have to configure the rules and settings of HTTP, so note down the following contents in your notepad.
 1. Server public IP addres
 2. Hostname
 
-* Now open  below path to configure
+* Now open the below path to configure.
 ```bash
 cd /etc/httpd/conf
 ```
-* We have to edit some contents from below path
+* We have to edit some contents from the below path.
 ```bash
 vim httpd.conf
 ```
-* Now jump to last paragraph of the page
-* Copy that paragraph and past it below.
-* Now we have change some values.
+* Now jump to the last paragraph of the page.
+* Copy that paragraph and paste it below.
+* Now we have to change some values.
 ```bash
 <VirtualHost <IP ADDRESS OF UR SERVER>:80>
     ServerAdmin root@<Server host name>       
@@ -62,11 +62,10 @@ vim httpd.conf
     CustomLog logs/dummy-host.example.com-access_log common
 </VirtualHost>
 ```
-* In first line add your server IP adress 
-* In secondline add your server hostname
-* Since we are using HTTP based websever all the resource required for the webserver will be stored in /var/www/html file
-* Server name should be same as hostname
-
+* In the first line, add your server's IP address.
+* In the second line, add your server hostname.
+* Since we are using an HTTP-based webserver, all the resources required for the webserver will be stored in the /var/www/html file.
+* The server name and hostname must be the same.
 EX:
 ```bash
 <VirtualHost 192.168.119.200:80>
@@ -93,7 +92,7 @@ cd /var/www/html
 ```bash
 vim index.html
 ```
-* Add the content that should be displayed in website
+* Add the content that should be displayed on the website.
 
 ```html
 <style>
@@ -190,19 +189,19 @@ Back to Amazon
 </button>
 ```
 * Save the file
-* Run below command to restart the HTTP service
+* Run the below command to restart the HTTP service.
 ```bash
 service hhtpd restart
 ```
 ### STEP 4:
 
-Open the web broserve and copy your IP address and paste.
+Open the web browser, copy your IP address, and paste.
 
 ![Screenshot 2023-08-07 135323](https://github.com/180172/Web_Pages_Configuration/assets/110009356/db10ef90-a705-4c26-9ef1-7b376dea9788)
 
-You can acess the wesite with content which you have added on it.
+You can access the website with the content that you have added.
 
-### Suppose if we want to create subpage under same web-page use **alias**
+### Suppose we want to create a subpage under the same webpage use **alias**
 
 ```bash
 <VirtualHost <IP ADDRESS OF UR SERVER>:80>
@@ -226,17 +225,17 @@ EX :
 </VirtualHost>
 ```
 
-Now open this path /var/www/html/busybox and create new index.html file and add sub-page contents
+Now open this path, /var/www/html/busybox, and create a new index.html file and add sub-page contents.
 
-After adding contents restart the service.
+After adding contents, restart the service.
 
-Open the browser paste URL like belo
+Open the browser and paste the URL like below.
 
 ```bash
 http:/<server ip>:80/<alias name>
 ```
 
-After all this if you want to create another new wepage follow the same process but insted of port 80 add any other port
+After all this, if you want to create another new webpage, follow the same process, but instead of port 80, add any other port.
 
 EX: 
 ```
