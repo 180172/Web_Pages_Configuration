@@ -3,7 +3,7 @@ Using a single server (host name or IP), we can configure a home web page and mu
 
  ### Prerequsite 
 
-- Linux server
+- RedHat Linux server (6.2 onward)
 
 ### STEP 1:
 To create a website, we have to configure some settings
