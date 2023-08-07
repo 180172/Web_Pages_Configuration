@@ -200,7 +200,6 @@ Open the web broserve and copy your IP address and paste.
 
 ![Screenshot 2023-08-07 135323](https://github.com/180172/Web_Pages_Configuration/assets/110009356/db10ef90-a705-4c26-9ef1-7b376dea9788)
 
-```
 You can acess the wesite with content which you have added on it.
 
 ### Suppose if we want to create subpage under same web-page use **alias**
