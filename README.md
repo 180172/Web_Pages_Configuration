@@ -197,6 +197,54 @@ service hhtpd restart
 ### STEP 4:
 
 Open the web broserve and copy your IP address and paste.
-You can see the wesite with content which you have added on it.
 
 ![Screenshot 2023-08-07 135323](https://github.com/180172/Web_Pages_Configuration/assets/110009356/db10ef90-a705-4c26-9ef1-7b376dea9788)
+
+```
+You can acess the wesite with content which you have added on it.
+
+### Suppose if we want to create subpage under same web-page use **alias**
+
+```bash
+<VirtualHost <IP ADDRESS OF UR SERVER>:80>
+    ServerAdmin root@<Server host name>       
+    DocumentRoot /var/www/html
+    alias <alias name> /var/www/html/<alias name>
+    ServerName <Host name>
+    ErrorLog logs/dummy-host.example.com-error_log
+    CustomLog logs/dummy-host.example.com-access_log common
+</VirtualHost>
+```
+EX :
+```bash
+<VirtualHost 192.168.119.200:80>
+    ServerAdmin root@shriram       
+    DocumentRoot /var/www/html
+    ServerName shriram
+    alias busybox /var/www/html/busybox
+    ErrorLog logs/dummy-host.example.com-error_log
+    CustomLog logs/dummy-host.example.com-access_log common
+</VirtualHost>
+```
+
+Now open this path /var/www/html/busybox and create new index.html file and add sub-page contents
+
+After adding contents restart the service.
+
+Open the browser paste URL like belo
+
+```bash
+http:/<server ip>:80/<alias name>
+```
+
+After all this if you want to create another new wepage follow the same process but insted of port 80 add any other port
+
+EX: 
+```
+<VirtualHost 192.168.119.200:8080>
+    ....................
+    --------------------
+    --------------------
+    --------------------
+</VirtualHost>
+```
