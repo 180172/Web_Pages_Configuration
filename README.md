@@ -8,7 +8,7 @@ Using a single server (host name or IP), we can configure a home web page and mu
 ### STEP 1:
 To create a website, we have to configure some settings
 
-* Installing the HTTP package
+* Installing the HTTP package.
 The command to install HTTP pacakage is
 ```bash
 sudo yum install -y httpd
@@ -25,7 +25,7 @@ sudo systemctl status firewalld
 ```bash
 sudo yum install firewalld   
 ```
-* Enable firewall
+* Enable firewall.
 ```bash
 sudo systemctl enable firewalld
 sudo systemctl start firewalld
