@@ -1,6 +1,9 @@
 ## Multiple web pages configuration 
 Using a single server (host name or IP), we can configure a home web page and multiple alias web pages, as well as multiple web pages on different ports as per availability.
 
+
+![export (6)_page-0001](https://github.com/180172/Web_Pages_Configuration/assets/110009356/340bc3d9-8c8e-4392-8256-ddec93ae4cd3)
+
  ### Prerequsite 
 
 - RedHat Linux server (6.2 onward)
